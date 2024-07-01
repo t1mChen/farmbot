@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HarvestX : 10.08 Integration Test</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HarvestX_1016022.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Testing_4981289.html">Testing</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Report_9142394.html">Report</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Automated-Integration-Tests_18612256.html">Automated Integration Tests</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HarvestX : 10.08 Integration Test
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jiahao Shi</span> on Oct 17, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style>[data-colorid=l0zyf01ioa]{color:#ff5630} html[data-color-mode=dark] [data-colorid=l0zyf01ioa]{color:#cf2600}[data-colorid=vd9abcra4o]{color:#ff5630} html[data-color-mode=dark] [data-colorid=vd9abcra4o]{color:#cf2600}[data-colorid=fct9udkh4o]{color:#ff5630} html[data-color-mode=dark] [data-colorid=fct9udkh4o]{color:#cf2600}[data-colorid=nv575q9u42]{color:#ff5630} html[data-color-mode=dark] [data-colorid=nv575q9u42]{color:#cf2600}[data-colorid=ec1qvem2bv]{color:#ff5630} html[data-color-mode=dark] [data-colorid=ec1qvem2bv]{color:#cf2600}[data-colorid=jq4d4czmwi]{color:#ff5630} html[data-color-mode=dark] [data-colorid=jq4d4czmwi]{color:#cf2600}</style><strong>Summary:</strong></p><p>Test Suites:   <span data-colorid="l0zyf01ioa">5 failed</span>, 651 passed, 656 total<br />Tests:            <span data-colorid="nv575q9u42">6 failed</span>, 4828 passed, 4834 total<br />Snapshots:   0 total<br />Time:            485.457 s<br />Ran all test suites.</p><p /><p><span data-colorid="ec1qvem2bv">Fail 1: </span>Acceptable fail, the unavailable message was replaced<br /> FAIL  frontend/devices/<strong>tests</strong>/actions_test.ts (938 MB heap size)<br />  ● commandOK() &rsaquo; sends demo account toast</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+- Expected
++ Received
+
+- &quot;Sorry, that feature is unavailable in demo accounts.&quot;,
++ &quot;HarvestX&quot;,
+  Object {
+-   &quot;title&quot;: &quot;Unavailable&quot;,
++   &quot;title&quot;: &quot;HarvestX&quot;,
+  }</pre>
+</div></div><hr /><p><span data-colorid="fct9udkh4o">Fail 2: </span>Rotation difference<br />FAIL  frontend/farm_designer/map/layers/images/<strong>tests</strong>/map_image_test.tsx (5.313 s, 1091 MB heap size)<br />  ● &lt;MapImage /&gt; &rsaquo; disables translation</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">expect(received).toEqual(expected) // deep equality
+
+Expected: &quot;scale(-1, -1)  rotate(0deg)&quot;
+Received: &quot;scale(-1, -1)  rotate(0deg) rotate(0deg)&quot;
+
+  367 |     wrapper.find(MapImage).setState({ imageWidth: 480, imageHeight: 640 });
+  368 |     expect(wrapper.find(&quot;image&quot;).props().style?.transform)
+&gt; 369 |       .toEqual(&quot;scale(-1, -1)  rotate(0deg)&quot;);
+      |        ^
+  370 |   });
+  371 | });
+  372 |
+
+  at Object.&lt;anonymous&gt; (frontend/farm_designer/map/layers/images/__tests__/map_image_test.tsx:369:8)</pre>
+</div></div><hr /><p><span data-colorid="jq4d4czmwi">Fail 3, 4, 5: </span>Photos related issues<br /> FAIL  frontend/photos/images/<strong>tests</strong>/photos_test.tsx (5.168 s, 1178 MB heap size)<br />  ● &lt;Photos /&gt; &rsaquo; takes photo</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">expect(jest.fn()).toHaveBeenCalled()
+
+Expected number of calls: &gt;= 1
+Received number of calls:    0
+
+  86 |     expect(btn.props().title).not.toEqual(Content.NO_CAMERA_SELECTED);
+  87 |     clickButton(wrapper, 0, &quot;take photo&quot;);
+&gt; 88 |     expect(takePhoto).toHaveBeenCalled();
+     |                       ^
+  89 |   });
+  90 |
+  91 |   it(&quot;shows disabled take photo button&quot;, () =&gt; {
+
+  at Object.&lt;anonymous&gt; (frontend/photos/images/__tests__/photos_test.tsx:88:23)</pre>
+</div></div><p>  ● &lt;Photos /&gt; &rsaquo; deletes photo</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+Expected: &quot;Image.8.4&quot;
+
+Number of calls: 0
+
+  111 |     expect(button.hasClass(&quot;fa-trash&quot;)).toBeTruthy();
+  112 |     await button.simulate(&quot;click&quot;);
+&gt; 113 |     expect(destroy).toHaveBeenCalledWith(p.currentImage.uuid);
+      |                     ^
+  114 |     await expect(success).toHaveBeenCalled();
+  115 |   });
+  116 |
+
+  at frontend/photos/images/__tests__/photos_test.tsx:113:21
+  at step (frontend/photos/images/__tests__/photos_test.tsx:44:23)
+  at Object.next (frontend/photos/images/__tests__/photos_test.tsx:25:53)
+  at fulfilled (frontend/photos/images/__tests__/photos_test.tsx:16:58)</pre>
+</div></div><p> ● &lt;Photos /&gt; &rsaquo; fails to delete photo</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+Expected: &quot;Image.8.4&quot;
+
+Number of calls: 0
+
+  124 |     expect(button.hasClass(&quot;fa-trash&quot;)).toBeTruthy();
+  125 |     await button.simulate(&quot;click&quot;);
+&gt; 126 |     await expect(destroy).toHaveBeenCalledWith(p.currentImage.uuid);
+      |                           ^
+  127 |     await expect(error).toHaveBeenCalled();
+  128 |   });
+  129 |
+
+  at frontend/photos/images/__tests__/photos_test.tsx:126:27
+  at step (frontend/photos/images/__tests__/photos_test.tsx:44:23)
+  at Object.next (frontend/photos/images/__tests__/photos_test.tsx:25:53)
+  at fulfilled (frontend/photos/images/__tests__/photos_test.tsx:16:58)</pre>
+</div></div><hr /><p><span data-colorid="vd9abcra4o">Fail 6:</span> Missing &quot;right&quot; button (flipper)<br /> FAIL  frontend/photos/images/<strong>tests</strong>/image_flipper_test.tsx (1691 MB heap size)<br />  ● &lt;ImageFlipper/&gt; &rsaquo; hides flipper at ends</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">expect(received).toContain(expected) // indexOf
+
+Expected substring: &quot;right&quot;
+Received string:    &quot;&lt;i class=\\&quot;fa fa-chevron-left\\&quot;&gt;&lt;/i&gt;&quot;
+
+  147 |     wrapper.update();
+  148 |     const btns = wrapper.render().find(&quot;button&quot;);
+&gt; 149 |     expect(btns.html()).toContain(&quot;right&quot;);
+      |                         ^
+  150 |     expect(btns.length).toEqual(1);
+  151 |   });
+  152 |
+
+  at Object.&lt;anonymous&gt; (frontend/photos/images/__tests__/image_flipper_test.tsx:149:25)</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jul 02, 2024 00:15</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

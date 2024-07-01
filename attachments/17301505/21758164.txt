@@ -1,0 +1,131 @@
+Test Suites: 4 failed, 142 passed, 146 of 656 total
+Tests:       6 failed, 2740 passed, 2746 total
+Snapshots:   0 total
+Time:        248 s
+
+Fail 1: Ok fail, the unavailable message was replaced
+ FAIL  frontend/devices/__tests__/actions_test.ts (938 MB heap size)
+  ● commandOK() › sends demo account toast
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    - Expected
+    + Received
+
+    - "Sorry, that feature is unavailable in demo accounts.",
+    + "HarvestX",
+      Object {
+    -   "title": "Unavailable",
+    +   "title": "HarvestX",
+      }
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Fail 2: Rotation difference
+FAIL  frontend/farm_designer/map/layers/images/__tests__/map_image_test.tsx (5.313 s, 1091 MB heap size)
+  ● <MapImage /> › disables translation
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: "scale(-1, -1)  rotate(0deg)"
+    Received: "scale(-1, -1)  rotate(0deg) rotate(0deg)"
+
+      367 |     wrapper.find(MapImage).setState({ imageWidth: 480, imageHeight: 640 });
+      368 |     expect(wrapper.find("image").props().style?.transform)
+    > 369 |       .toEqual("scale(-1, -1)  rotate(0deg)");
+          |        ^
+      370 |   });
+      371 | });
+      372 |
+
+      at Object.<anonymous> (frontend/farm_designer/map/layers/images/__tests__/map_image_test.tsx:369:8)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Fail 3, 4, 5: Photos related issues
+ FAIL  frontend/photos/images/__tests__/photos_test.tsx (5.168 s, 1178 MB heap size)
+  ● <Photos /> › takes photo
+
+    expect(jest.fn()).toHaveBeenCalled()
+
+    Expected number of calls: >= 1
+    Received number of calls:    0
+
+      86 |     expect(btn.props().title).not.toEqual(Content.NO_CAMERA_SELECTED);
+      87 |     clickButton(wrapper, 0, "take photo");
+    > 88 |     expect(takePhoto).toHaveBeenCalled();
+         |                       ^
+      89 |   });
+      90 |
+      91 |   it("shows disabled take photo button", () => {
+
+      at Object.<anonymous> (frontend/photos/images/__tests__/photos_test.tsx:88:23)
+
+  ● <Photos /> › deletes photo
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Image.8.4"
+
+    Number of calls: 0
+
+      111 |     expect(button.hasClass("fa-trash")).toBeTruthy();
+      112 |     await button.simulate("click");
+    > 113 |     expect(destroy).toHaveBeenCalledWith(p.currentImage.uuid);
+          |                     ^
+      114 |     await expect(success).toHaveBeenCalled();
+      115 |   });
+      116 |
+
+      at frontend/photos/images/__tests__/photos_test.tsx:113:21
+      at step (frontend/photos/images/__tests__/photos_test.tsx:44:23)
+      at Object.next (frontend/photos/images/__tests__/photos_test.tsx:25:53)
+      at fulfilled (frontend/photos/images/__tests__/photos_test.tsx:16:58)
+
+  ● <Photos /> › fails to delete photo
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Image.8.4"
+
+    Number of calls: 0
+
+      124 |     expect(button.hasClass("fa-trash")).toBeTruthy();
+      125 |     await button.simulate("click");
+    > 126 |     await expect(destroy).toHaveBeenCalledWith(p.currentImage.uuid);
+          |                           ^
+      127 |     await expect(error).toHaveBeenCalled();
+      128 |   });
+      129 |
+
+      at frontend/photos/images/__tests__/photos_test.tsx:126:27
+      at step (frontend/photos/images/__tests__/photos_test.tsx:44:23)
+      at Object.next (frontend/photos/images/__tests__/photos_test.tsx:25:53)
+      at fulfilled (frontend/photos/images/__tests__/photos_test.tsx:16:58)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Fail 6: Missing "right" button (flipper)
+ FAIL  frontend/photos/images/__tests__/image_flipper_test.tsx (1691 MB heap size)
+  ● <ImageFlipper/> › hides flipper at ends
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "right"
+    Received string:    "<i class=\"fa fa-chevron-left\"></i>"
+
+      147 |     wrapper.update();
+      148 |     const btns = wrapper.render().find("button");
+    > 149 |     expect(btns.html()).toContain("right");
+          |                         ^
+      150 |     expect(btns.length).toEqual(1);
+      151 |   });
+      152 |
+
+      at Object.<anonymous> (frontend/photos/images/__tests__/image_flipper_test.tsx:149:25)

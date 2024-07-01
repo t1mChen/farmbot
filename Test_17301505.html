@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HarvestX : Test</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HarvestX_1016022.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Decisions_10780673.html">Decisions</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HarvestX : Test
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Xinxin Guo</span>, last modified on Oct 21, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style>[data-colorid=ecvrfdm13w]{color:#6554c0} html[data-color-mode=dark] [data-colorid=ecvrfdm13w]{color:#503fab}[data-colorid=zpehp62mxo]{color:#6554c0} html[data-color-mode=dark] [data-colorid=zpehp62mxo]{color:#503fab}[data-colorid=ni4hjhfsp5]{color:#6554c0} html[data-color-mode=dark] [data-colorid=ni4hjhfsp5]{color:#503fab}</style><strong><span data-colorid="ecvrfdm13w">9.05</span></strong></p><p><strong>Testing</strong></p><p>Decide not to do the load test: The FarmBot web has already passed the load test before it being implemented, so we can assume that the website has satisfied the client&rsquo;s need.</p><p>Add use experience test: The FarmBot demo we build also work as an advertisement to the product, therefore we should highlight the importance of user&rsquo;s experience through using the demo. This part will be explored later.</p><p /><p><strong><span data-colorid="ni4hjhfsp5">10.16</span></strong></p><p><strong>Automated test bugs</strong></p><p>There are 6 bugs reported by the automated test from the . </p><p><strong>Fail 1</strong>: This bug is caused because we replace entering message with our team name, which is inevitable  and can be ignored. </p><p><strong>Fail 2</strong>: Fixed by using the replace method instead of just concatenating the rotation message. </p><p><strong>Fail 3, 4, 5</strong> (photo related issues): These 3 bugs are caused due to the reason that we are not connected to a real camera. So it is hard to fix and will cause a lot of issues if we try to modify the camera-connection-related codes. So we put these bugs aside for now. </p><p><strong>Fail 6</strong>: This bug is caused because there are two flippers (embedded and overlay) that if we update the state of one flipper, the other one does not update accordingly (two flippers should reflect each other' change)</p><p><em><u>Trial</u>:</em> lifting the states of flipper up to the simulated local store so that two flippers are connected to one state. </p><p><em><u>Outcome</u></em>: fail 6 is no longer detected when manually testing this feature. However, automated test still reports this issue. We will try more possible solutions before the product is submitted. </p><p /><p>Here is the summary of automated testing report:  <span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/17301505/21758164.txt" data-nice-type="Text File" data-file-src="/wiki/download/attachments/17301505/summary.txt?version=1&amp;modificationDate=1697806798848&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="21758164" data-linked-resource-type="attachment" data-linked-resource-container-id="17301505" data-linked-resource-default-alias="summary.txt" data-mime-type="text/plain" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="3800ce0d-7d7a-4df2-927b-79cb7a42878f" data-media-type="file"><img src="attachments/thumbnails/17301505/21758164" height="250"/></a></span> </p><p /><p><strong><span data-colorid="zpehp62mxo">10.19</span></strong></p><p><strong>User experience test</strong></p><p>Based on the results of the user experience test, we have summarized some area that need improvement. We have recorded more detailed information in<a href="https://jiahaoshi.atlassian.net/wiki/spaces/HarvestX/pages/9109623" rel="nofollow">User experience testing</a></p><p>&nbsp;</p><ol start="1"><li><p>Add a clear start point</p></li></ol><p>User do not know how to manipulating the demo begin with, and they had to click around to find out what is available.</p><p>From all features in nav bar, we decided to highlight two main button, one is planting, lead the user try to plant(move) the plant icon themselves, and another one is photo button, engage the user to try out new add on features.</p><p>As well, we plan to all a page in the tour guide to lead the user begin with planting panel.</p><ol start="2"><li><p>Highlight the Robotic arm</p></li></ol><p>One of the key feature of the farmbot is user can control their garden remotely with the robotic arm. However, the position of robotic arm is hard to seen, especially when the background image is displayed. n this case, we decided to make the position point more easier to be seen.</p><ol start="3"><li><p>Match the plant icon to the background image</p></li></ol><p>We displayed the photo of plants in the demo interface but is doesn;t match the plant icon! So it is necessary to move the icon match the background image to make the demo feels more realistic.</p><ol start="4"><li><p>Search</p></li></ol><p>We mainly focus on the photo panel in this project, but now is time to pay some attention to other aspect. When user try the planting panel, they hesitate about what should do, to give them better experience, we decides to add some details in the photo panel.</p><ol start="5"><li><p>Soil height detection</p></li></ol><p>Should have clear response when the user measure soil height.</p><ol start="6"><li><p>Tour guide</p></li></ol><p>Almost all user ignore the tour guide or accidentally close the tour guide when they enter the demo. We need rescale the tour guide window as well add more visual aids to attract user read through whole guide, this will help them have better experience with the farmbot demo.</p><ol start="7"><li><p>Feedback</p></li></ol><p>Need to provide some previous comment to make the it more realistic.</p><ol start="8"><li><p>Timelaspe component</p></li></ol><p>Users were unable to change photos using the timeline and spent a lot of time looking for ways to change photos, we need to make photo change when user sliding timeline/ give user a instruction about how to change photos.</p><p>&nbsp;</p><p><strong>Automatic Integration test</strong></p><p>When writing test code, we need to recreate the environment that the program encounters during actual operation. This often involves handling many props and states, with the code frequently scattered across various files. Moreover, these files might contain additional related functions. Such clustering of files and code can lead to unpredictable side effects when employing mocking features of testing frameworks like Jest.</p><p>For example, a demo detection function named &quot;forceOnline&quot; Utilizing the mock feature on this functions can result in a lot of errors in other unrelated tests, making it exceptionally difficult to isolate the function being tested and thereby challenging to test a feature's completeness.</p><p>At 10.20, we only completed automated test for epic 2, and met obstracle when trying to test rest of cases.</p><p>As we have code review and manual unit test already finished, the current system is ok to run and further tests is not necessary. We decides to move our attention to polish the system rather than struggle with the integration test.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/17301505/21758164.txt">summary.txt</a> (text/plain)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jul 02, 2024 00:15</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

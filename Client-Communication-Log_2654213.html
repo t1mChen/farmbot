@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HarvestX : Client Communication Log</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HarvestX_1016022.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Communication-with-client_11173901.html">Communication with client</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HarvestX : Client Communication Log
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tianxi Chen</span>, last modified on Aug 23, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><u>09/08</u> Questions awaiting Response from client:</p><ol start="1"><li><p>If we want to add new features to the Farmbot-Web-App, what kind of features should we consider? (Improve user experience/ Add new functions/ Process data)</p></li><li><p>Can we choose Github Issues (<a class="external-link" data-card-appearance="inline" href="https://github.com/FarmBot/Farmbot-Web-App/issues" rel="nofollow">https://github.com/FarmBot/Farmbot-Web-App/issues</a> ) as our new feature, like adding a mini map.</p></li><li><p>Can we get access to a real Farmbot? We cannot see the managing interface unless we add a real bot to our dashboard.</p></li><li><p>If we choose to build the E-nose or thermal camera dashboard, do we have to train our own machine learning model or only build the API for training.</p></li><li><p>Is it possible for us to we write an add-on or plugin with new hardware, like a Drip Irrigation plan.</p></li></ol><p><u>23/08</u> Questions responded <img class="emoticon emoticon-blue-star" data-emoji-id="1f195" data-emoji-shortname=":new:" data-emoji-fallback="🆕" src="images/icons/emoticons/72/1f195.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> </p><p>1. <strong>Any feature</strong> that motivate you. Treat it as an open platform for you to create your own project.<br/>2. Sure, you can certainly do so, and you can aim to end up with a<strong> pull request </strong>to close this issue.<br/>3. Yes, you can interact with a real farm.bot. They are located on the last level in the student precinct, the building that has a pho restaurant. <strong>You can access them anytime</strong>. If you are interested, We can set up a time to meet there so I can show you around, but feel free to go and explore it. There are currently other teams working with them, but no-one needs exclusive access. You'll most likely need to setup a <strong>local server </strong>to develop and test your changes. Check this page for more info: <a class="external-link" data-card-appearance="inline" href="https://developer.farm.bot/v15/docs/farmbot-software-development" rel="nofollow">https://developer.farm.bot/v15/docs/farmbot-software-development</a>  and <a class="external-link" data-card-appearance="inline" href="https://developer.farm.bot/v15/docs/web-app/frontend" rel="nofollow">https://developer.farm.bot/v15/docs/web-app/frontend</a> <br/>4. If you build a Dashboard, I'll focus on an <strong>API that monitors changes</strong> on a target csv file for the e-nose, and for the thermal camera, assume that you monitor images in a folder, as different cameras have different standards. For the e-nose, Talking with the colleagues from Agriculture, they mentioned that it would be great to <strong>automatically recognise when the signal is in the &quot;statble state&quot;</strong>. They mention that this happens after x seconds of <strong>holding the e-nose still over a plant</strong>, and then the sensors signal has a <strong>bell-curve shape</strong>. You could design a dashboard that <strong>loads the data and automatically recognizes the calibrated regions of the time series</strong>. They will send me the data soon, the team is currently in Europe, coming back on the <em>28th of Aug</em>. If you are interested in building a ML pipeline, take a look if you can use <em>datasets from Kaggle that contain ground truth data</em>. You can certainly find datasets for FLIR cameras, but you may want to explore other datasets in the agricultural or plant space.<br/>5- Absolutly!</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jul 02, 2024 00:15</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

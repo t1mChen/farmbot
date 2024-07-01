@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HarvestX : Use case descriptions</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HarvestX_1016022.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Architecture-Design_4981045.html">Architecture Design</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HarvestX : Use case descriptions
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mingyu Li</span>, last modified on Oct 28, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h3 id="Usecasedescriptions-UC-01:ProcessPhotosinUI">UC-01: Process Photos in UI</h3><p><strong>Summary</strong></p><p>Process photos as instructed by user. </p><p><strong>Rationale</strong></p><p>Displaying the capabilities of processing photos can let potential users know the actions they can perform on photos when connected to an actual FarmBot.</p><p><strong>Users </strong></p><p>Potential users of farmbot. </p><p><strong>Preconditions</strong></p><p>The user has logged into the FarmBot control panel. </p><p><strong>Steps</strong></p><ol start="1"><li><p>The user accesses the FarmBot demo page through a web or mobile application.</p></li><li><p>The user locates and clicks the ‘Photos’ tab on the UI.</p></li><li><p>The UI displays a collection of photos stored in the photos tab. </p></li><li><p>The user filters the photos by applying a set of conditions. </p></li><li><p>The UI shows the filtered photos on map and actions the user can perform (flipper will not be influenced!). </p></li></ol><p><strong>Alternative Path1</strong></p><p>4b. The user clicks ‘Weed detection’ button. </p><p>5b. The UI shows spotted weeds (if any) to the user. </p><p><strong>Alternative Path2</strong></p><p>4c. The user clicks ‘Measure soil height’ in the measure soil height tab. </p><p>5c.  The UI shows the soil height to user. </p><p><strong>Alternative Path3</strong></p><p>4d. The user flips over photos by clicking left/right button. </p><p>5d. The UI flipper shows the photo as instructed. </p><p><strong>Alternative Path4</strong></p><p>4e. The user manipulates photos by clicking buttons like delete, rotate, download. </p><p>5e. The photo being manipulated reacts as instructed. </p><p><strong>Alternative Path5</strong></p><p>4f. The user wants to observe the growth of plants and click the compare button. </p><p>5f. The flipper loads photos for compare and shows up a slider indicating the time of photo taken. </p><p><strong>Post Condition</strong></p><p>The user has successfully processed photos and get the expected results. </p><h3 id="Usecasedescriptions-UC-02:ControlFarmBotinUI">UC-02: Control FarmBot in UI</h3><p><strong>Summary</strong></p><p>Control the farmbot as instructed by user. </p><p><strong>Rationale</strong></p><p>Moving the FarmBot in a simulated environment can help potential users understand how the UI operates when connected to a farmbot. And Watching the Webcam can let users monitor the farm remotely. </p><p><strong>Users</strong></p><p>Potential users of farmbot. </p><p><strong>Preconditions</strong></p><p>The user has logged into the FarmBot control panel. </p><p><strong>Steps</strong></p><ol start="1"><li><p>The user accesses the FarmBot demo page through a web or mobile application.</p></li><li><p>The user locates the ‘Control’ tab on the UI.</p></li><li><p>The UI presents a controller showing a graphical representation of the FarmBot's options for movement, photo taking, reset FarmBot and the Webcam for monitoring. </p></li><li><p>The user selects the direction they want the FarmBot to move (e.g., up, down, left, right).</p></li><li><p>The simulated FarmBot starts moving in the specified direction. </p></li></ol><p><strong>Alternative Path1</strong></p><p>In step 4, if user wants to take a photo from current perspective, it should have a button for taking photos. </p><p>4b. The user clicks ‘take a photo’ button in the ‘MOVE’ tab. </p><p>5b. A photo of current position was added to all photos. </p><p><strong>Alternative Path2</strong></p><p>In step 4, if user wants to restart and move in a different way, it should have a reset button to bring simulated robot back to origin. </p><p>4c. The user locates and clicks the ‘reset' button. </p><p>5c. The simulated robot returns to its starting point.</p><p><strong>Post Conditions</strong></p><p>The user has successfully moved the simulated farmbot or taken photos in the UI. </p><h3 id="Usecasedescriptions-UC-03:WatchIntroVideo">UC-03: Watch Intro Video</h3><p><strong>Summary</strong></p><p>Show an intro video to user as required.</p><p><strong>Rationale</strong></p><p>Videos provide a visual way to demonstrate an actual FarmBot in action. It allows potential users to see how the robot operates, how it interacts with plants, and how it performs various tasks.</p><p><strong>Users</strong></p><p>Potential users of farmbot.</p><p><strong>Preconditions</strong></p><p>The user has logged into the FarmBot control panel.</p><p><strong>Steps</strong></p><ol start="1"><li><p>The user accesses the FarmBot demo page through a web or mobile application.</p></li><li><p>The user locates and clicks the ‘webcam’ tab</p></li><li><p>The UI pops up a window that shows an intro video to the user.</p></li><li><p>The user clicks and watches the video.</p></li></ol><p><strong>Alternative Paths</strong></p><p>In Step 3, If the intro video fails to load in UI, UI should reports to the user the error message and provides the link to the corresponding video.</p><p>3b. The UI reports the message “Video fails to load” and provides the link to video.</p><p>4b. The user clicks the link and is redirected to the corresponding video to watch.</p><p><strong>Postconditions</strong></p><p>The user is successfully watch the video introducing how an actual farmbot works.</p><h3 id="Usecasedescriptions-UC-04:UseTourGuideinUI">UC-04: Use Tour Guide in UI</h3><p><strong>Summary</strong></p><p>The user chooses a tour guide and explore the web app. </p><p><strong>Rationale</strong></p><p>A tour guide helps users navigate through unfamiliar features, ensuring they don’t get lost. It provides valuable information about the context of the web app, enriching user’s experience. </p><p><strong>Users</strong></p><p>Potential users of farmbot. </p><p><strong>Preconditions</strong></p><p>The user has logged into the FarmBot control panel. </p><p><strong>Steps</strong></p><ol start="1"><li><p>The user accesses the FarmBot demo page through a web or mobile application.</p></li><li><p>The user locates and clicks the ‘help’ tab. </p></li><li><p>The user selects the “Take a tour“ tab. </p></li><li><p>The user chooses the guide to follow, and navigate through guide. </p></li></ol><p><strong>Postconditions</strong></p><p>The user successfully explored various features of the Web App. </p><h3 id="Usecasedescriptions-UC-05:Shopping">UC-05: Shopping </h3><p><strong>Summary</strong></p><p>Show the ads and different models to users. </p><p><strong>Rationale</strong></p><p>The ultimate aim of demo account feature is to improve the user experience and potentially promote the farmbot sales. That is why shopping related features are necessary. </p><p><strong>Users</strong></p><p>Potential users of farmbot. </p><p><strong>Preconditions</strong></p><p>The user has logged into the FarmBot control panel. </p><p><strong>Steps</strong></p><ol start="1"><li><p>The user randomly clicks and explores the Web App.</p></li><li><p>The UI pops up ads in the middle of the screen at some click. </p></li><li><p>The user clicks the ads. </p></li><li><p>The UI directs the user to the page with product information and the buying link. </p></li></ol><p><strong>Alternative path</strong></p><p>1b. The user selects the “models“ tab</p><p>2b. The UI shows different models with respective features and constraints. </p><p><strong>Postconditions</strong></p><p>The user views the ads, compares different models, and potentially considers buying a real farmbot. </p><h3 id="Usecasedescriptions-UC-06:Providefeedback">UC-06: Provide feedback</h3><p><strong>Summary</strong></p><p>The user provides feedback through web app</p><p><strong>Rationale</strong></p><p>To create a more user-friendly and competitive product, there should be a feedback section to accept comments from users. </p><p><strong>Users</strong></p><p>Potential users of farmbot. </p><p><strong>Preconditions</strong></p><p>The user has logged into the FarmBot control panel. </p><p><strong>Steps</strong></p><ol start="1"><li><p>The user locates and selects the “feedback“ tab.</p></li><li><p>The UI pops up a window for user to fill in comments. </p></li><li><p>The user submits the feedback. </p></li></ol><p><strong>Postconditions</strong></p><p>Feedback was sent to the backend for further process by developers. </p><p /><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jul 02, 2024 00:15</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

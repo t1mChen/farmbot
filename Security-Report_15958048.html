@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HarvestX : Security Report</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HarvestX_1016022.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="16089090.html">Ethics &amp; Security Report</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HarvestX : Security Report
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tianxi Chen</span>, last modified on Oct 16, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Security considerations will be discussed for our project, considering various security issues to help ensure the safety and integrity of the system. Since we are extending the codebase, and our focus is on the demo interface, which has less impact on the overall security measures, we will also take into consideration of the original FarmBot application’s measures.</p><p><strong>Security Issues Considered</strong></p><ul><li><p>User Authentication</p></li></ul><p>FarmBot's web app relies on user authentication and authorization to ensure that only authorized users can control and configure the FarmBot devices, which includes real-time manual controls, sequence building, and garden design. When logged in with a personal account, a lot of sensitive information such as email, phone number, username, addresses etc are recorded as personal information. Therefore, any leakage of these information will impact the security of the users if they are obtained by others.</p><p>Attackers may attempt to gain unauthorized access to the FarmBot system by performing brute-force attacks, exploiting weak passwords or known vulnerabilities in the authentication methods. By logging into the system with other user’s credentials, attackers might disrupt farm operations, change timetables, or steal sensitive data once inside. Data within the system may be manipulated by attackers, such as crop schedules or timelapse recordings. The attackers may tamper the data, tampered data could result in suboptimal farming methods or possibly lead to equipment damage.</p><p>To protect the vulnerabilities from brute force attacks to access to key information such as password, FarmBot has established standards for users when creating accounts to ensure that the passwords are strong enough. This ensures that the password is difficult for attackers to perform brute force attack or can be easily guessed. However, this set of standards are not strong enough, we will further evaluate this implementation later in the report. Also, Security measures with granular controls for who can access timelapse recordings and under what circumstances. This ensures that though attackers may access user’s account, which means they will not be able to provide invalid commands to the devices and intentionally break the motors or other parts.</p><ul><li><p>Data Synchronization &amp; External Links</p></li></ul><p>FarmBot OS and the web app synchronize data, including schedules, logs, and sensor information. Hence, the data safety during the exchange of information is essentially important for safety of the user and the FarmBot server. FarmBot integrate with external services OpenFarm to access crop and growing information to enrich user experience. Relying on external services. Moreover, with features including redirect of links internally with in the application or the advertisement features, there is always risks exists in between data transfer.</p><p>As the system integrates with third-party services for shopping advertisements, the attacker may perform attacks by injecting malicious data that contains invalid or links with viruses. For example, the attack may replace the popup advertisement’s link with a link that contains virus to disrupt the user’s operating system, or malicious websites scam activities so the user’s may be scammed to make direct transfer to the attacker, e.g., a website that looks like officially published by FarmBot and scamming them to purchase via bank transfer or cryptocurrency.</p><p>FarmBot has evaluated the security of third-party services to ensure that the integration of external components is following secured particles. Specific measure includes secure API key management and data sharing policies. To confirm that there is no linkage with the user during redirection, programs that is isolated from the users have been created, ensuring no information is leaked towards the 3<sup>rd</sup>-party providers. When implementing the time-lapse recording, data encryption and integrity are also handled in between data transfer to protect the recorded footage or photos from being tampered with sent from the robot.</p><p><strong>Overall Security &amp; Improvements</strong></p><p>The overall security is still relatively poor for such an equipment which is costly for the customers. One major consideration is regarding the user authentication problems. Although measures such as limiting the password were implemented, it is not enough to stop attackers. As the technology progresses, the computers are getting more powerful, which means that breaking a password under the current security measure becomes practical. Furthermore, even though if we strengthen the restrictions on user’s password, this does not stop attackers from performing social engineering attack. For example, they can pretend to be friend or relatives and obtain the password by just asking them and then they can login the account easily.</p><p>Despite this, if an account is stolen by others or logged in by others from other locations, the actual user may never notice it, which result in continuous leakage of their latest updated personal information. This will become an eavesdropping attack at the end. If an users’ logging credentials and their email’s logging credentials are obtained by an attacker, the user may be unable to trace their accounts back, result in even greater loss.</p><p>It could be improved by implementing real-time monitoring and intrusion detection systems to promptly identify and respond to security incidents. Automated alerts such as unexpected login attempts, and continuous phishing monitoring will help to deal with potential threats more efficiently and evolving security threats. Hence users may easily notice the threats and potentially prevent from or stop data leakage.</p><p>It should also enable 2FA, which means users also need to provide a second authentication code sent to their email to prevent attackers from logging when holding their username and password. On top of that, FarmBot should also enable a text message-based system which requires users to input their phone numbers to obtain a passcode when register an account. This will provide benefit of reducing fake accounts being registered in case if attacker want to break the server by breaching the upper limit of maximum users. It also provides a third option for users to login, enhancing security of user privacy data.</p><p>FarmBot should also educate users about security best practices. Having a clear and accessible documentation, emphasizing on strong password policies. Keeping the user community informed about security improvements and potential issues will help to promote security awareness.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jul 02, 2024 00:16</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

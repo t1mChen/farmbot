@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HarvestX : Deployment Guide</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HarvestX_1016022.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Pre-development_4981003.html">Pre-development</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HarvestX : Deployment Guide
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jiahao Shi</span>, last modified on Oct 20, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Setting Up GCP VM</strong></p><ol start="1"><li><p>Go to “Compute Engine“, start a new VM instance.</p></li><li><p>Choose model <strong>E2 → e2-standard-4</strong>.</p></li><li><p>Choose <strong>ubuntu </strong>as operating system.</p></li><li><p>Allow HTTP and HTTPS.</p></li><li><p>Generate ssh key on your own device (<code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code>)</p></li><li><p>Go to <strong>advanced -&gt; security</strong>, add your ssh public key. </p></li></ol><p /><p><strong>Deploying Application</strong></p><ol start="1"><li><p>SSH into your own GCP Virtual Machine Instance</p></li><li><p>Go to <a class="external-link" data-card-appearance="inline" href="https://github.com/Reesedog/Farmbot-Web-App" rel="nofollow">https://github.com/Reesedog/Farmbot-Web-App</a> </p></li><li><p>Go to <strong>ubuntu_example.sh</strong></p></li><li><p>Follow the guide to install all dependencies till the 'nano' step</p></li><li><p>Update the .env document using the parameters in Slack</p></li><li><p>Continue following the guide. A warning about PunyCode could show up, ignore.</p></li><li><p>Wait for the built notification.</p></li><li><p>Visit the website at your IP address : 3000</p></li></ol><p /><p><strong>Step-by-Step Command Line Guide</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># Remove old (possibly broke) docker versions
+sudo apt remove docker-engine
+sudo apt remove docker docker.io containerd runc
+
+# Install docker and docker compose
+sudo apt update
+sudo apt install ca-certificates curl gnupg lsb-release -y
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+# Verify installation
+sudo docker run hello-world
+sudo docker compose version
+
+# Install FarmBot Web App
+# ⚠ SKIP THIS STEP IF UPGRADING!
+git clone https://github.com/FarmBot/Farmbot-Web-App --depth=5 --branch=main
+
+cd Farmbot-Web-App
+
+cp example.env .env # ⚠ SKIP THIS STEP IF UPGRADING!
+
+# == This is a very important step!!! ==
+#
+# ⚠️ Open `.env` in a text editor and change all the values.
+# Use the sample .env file (remember to change the IP address)
+#
+# == Nothing will work if you skip this step!!! ==
+
+nano .env          # Default using nano. Use any text editor you like
+# ^ This is the most important step
+# READ NOTE ABOVE. Very important! 
+
+# Install the correct version of bundler for the project
+sudo docker compose run web gem install bundler
+# Install application specific Ruby dependencies
+sudo docker compose run web bundle install
+# Install application specific Javascript deps
+sudo docker compose run web npm install
+# Create a database in PostgreSQL
+sudo docker compose run web bundle exec rails db:create db:migrate
+# Generate a set of *.pem files for data encryption
+sudo docker compose run web rake keys:generate # ⚠ SKIP THIS STEP IF UPGRADING!
+# Build the UI assets via ParcelJS
+sudo docker compose run web rake assets:precompile
+# Run the server! ٩(^‿^)۶
+# NOTE: DONT TRY TO LOGIN until you see a message similar to this:
+#   &quot;✨  Built in 44.92s&quot;
+# THIS MAY TAKE A VERY LONG TIME ON SLOW MACHINES (~3 minutes on DigitalOcean)
+# You will just get an empty screen otherwise.
+# This only happens during initialization
+sudo docker compose up</pre>
+</div></div><p /><p><strong>Sample .env file:</strong></p><p>MQTT_HOST= ⚠️Your IP address</p><p>MAX_POOL_SIZE=2</p><p>API_HOST= ⚠️Your IP address</p><p>5API_PORT=3000</p><p>POSTGRES_PASSWORD=1234</p><p>DEVISE_SECRET=45501bc68777ab022cb37be98ea9b15315ec504519d6d7f81e90cccb59a818cda67214d388afc487da466e0e702e010ce51af14e1d7a9420a07985e7eeea17be</p><p>ADMIN_PASSWORD=Harvest1234</p><p>SECRET_KEY_BASE=92cb34c647fe1cf61ed581bfa7c5418308ffb27a91575615c82d803442a20f21674dc113c3fa90a35ad0846f0f6d39caa567059162a7315732e030b4890b8803</p><p>RAILS_ENV=production</p><p>NO_EMAILS=TRUE</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jul 02, 2024 00:15</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

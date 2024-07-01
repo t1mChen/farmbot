@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HarvestX : High Level Architecture Overview</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HarvestX_1016022.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Architecture-Design_4981045.html">Architecture Design</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HarvestX : High Level Architecture Overview
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tianxi Chen</span>, last modified by <span class='editor'> Mingyu Li</span> on Sep 24, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/10387481/10387493.png" data-image-src="attachments/10387481/10387493.png" data-height="1469" data-width="1485" data-unresolved-comment-count="0" data-linked-resource-id="10387493" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230915-065705.png" data-base-url="https://jiahaoshi.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10387481" data-linked-resource-container-version="3" data-media-id="754ee173-1b38-4277-90a3-3a0008f34db1" data-media-type="file"></span><p>FarmBot is an innovative farming system with various components that work together to make automated gardening accessible to everyone. Below is an introduction to each component and how they are connected together. </p><ul><li><p><strong>Raspberry Pi: </strong>The link between your FarmBot and the FarmBot Web App. The Raspberry Pi directly communicates with the Farmduino board, which acts as the central hub for electronic operations (Manage data exchange between the Web App and the Farmduino).</p></li><li><p><strong>FarmBot Web App:</strong> User Interface for configuring and managing the FarmBot. Users can access it through various ways like laptop, tablet, or smartphone. <br/>It also supports demo account feature: <a class="external-link" data-card-appearance="inline" href="https://software.farm.bot/v15/docs/demo.html" rel="nofollow">https://software.farm.bot/v15/docs/demo.html</a> , which is also the part that our team is working on. </p></li><li><p><strong>FarmBot OS:</strong> A custom operating system running on the Raspberry Pi. it maintains a connection with the web application through a message broker, which enables FarmBot to download and execute scheduled tasks, respond to real-time commands, and upload logs and sensor data. FarmBot OS also maintains a communication with the Arduino using USB or serial connections to send G and F code commands, as well as receive data from sensors and rotary encoders.</p></li><li><p><strong>Arduino Firmware:</strong>  Interpreting data received from FarmBot OS and physically operates the electronic components accordingly. Additionally, it collects data from electronic components and send it back to the Raspberry Pi as well.</p></li><li><p><strong>OpenFarm:</strong> A free and open database for farming and gardening knowledge, providing crop and growing information to the web app for a streamlined user experienced</p></li></ul><p>Example: taking a photo</p><ol start="1"><li><p>User clicks the ‘take photo’ button via Web App. </p></li><li><p>Web App software creates an action event and dispatch it to the FarmBot OS, which is running on the Raspberry Pi.</p></li><li><p>FarmBot OS receives the command and processes it, then communicates with the FarmBot Arduino Firmware to control the physical movements. </p></li><li><p>Instructions are sent to the Arduino Firmware to trigger the photo capture process.</p></li><li><p>The camera captures the image, and send it back to the Raspberry Pi. </p></li><li><p>The FarmBot OS receives the image and send it to FarmBot Web App</p></li><li><p>FarmBot Web App processes the received image. </p></li><li><p>Image shows on User’s screen. </p></li></ol><p /><p>From: <a class="external-link" data-card-appearance="inline" href="https://software.farm.bot/v15/docs/intro" rel="nofollow">https://software.farm.bot/v15/docs/intro</a> </p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10387481/10387493.png">image-20230915-065705.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jul 02, 2024 00:15</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

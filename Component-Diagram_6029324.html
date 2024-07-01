@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HarvestX : Component Diagram</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HarvestX_1016022.html">HarvestX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Architecture-Design_4981045.html">Architecture Design</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HarvestX : Component Diagram
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tianxi Chen</span>, last modified on Oct 20, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><style>[data-colorid=kw0bxxgxdp]{color:#bf2600} html[data-color-mode=dark] [data-colorid=kw0bxxgxdp]{color:#ff6640}[data-colorid=u6acqlpy9k]{color:#bf2600} html[data-color-mode=dark] [data-colorid=u6acqlpy9k]{color:#ff6640}</style><img class="confluence-embedded-image image-center" width="730" loading="lazy" src="attachments/6029324/21758131.png?width=730" data-image-src="attachments/6029324/21758131.png" data-height="626" data-width="730" data-unresolved-comment-count="0" data-linked-resource-id="21758131" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20231020-122156.png" data-base-url="https://jiahaoshi.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="6029324" data-linked-resource-container-version="3" data-media-id="cf896212-6bfc-4e00-a9c6-ccd9327e9a79" data-media-type="file" /></span><p /><p>This is the component diagram of the relevant features that we are going to build.</p><p>Based on user stories and the existing system design, the diagram has been split into three distinct components.</p><p>The Farmbot component is the part we are not able to modify on. It is the control system of a Farmbot device. The controls and the Photos are the parts we are going to edit.</p><p>We can see that these parts are using interface provided by Farmbot currently. These actions will send a rpc towards the Farmbot to execute relevant actions. And for the webcam component, it uses a 3rd party api to live stream the camera on Farmbot.</p><p>Since we are building a more completed demo interface, we need to break up these components under the demo account and build our own logic to simulate the actions.</p><p>The <span data-colorid="kw0bxxgxdp">red</span> sections indicates the features that <span data-colorid="u6acqlpy9k">does not exist originally</span>, which we need to extended upon from. We have established a demo control component, which when each request is sent to FarmBot device, the systems checks whether it is from a demo account and then perform corresponding actions.</p><p>And based on previous change in requirements, we have investigated and added the required compoents to be modified on.</p><p>As indicated the component diagram shows the component that our team need to either modify from or extend more components up and beyond. The cases are reflected in user stories.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/6029324/6094849.png">component diagram.drawio.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/6029324/6094856.png">component diagram.drawio (1).png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/6029324/21758131.png">image-20231020-122156.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jul 02, 2024 00:15</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
